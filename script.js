@@ -17,34 +17,12 @@ async function loadUserData() {
         // const response = await fetch(`${API_URL}/users`);
         // userData = await response.json();
         
-        // Demo data for now
-        userData = generateDemoData();
+        // No demo data - start with empty array
+        userData = [];
         updateDashboard();
     } catch (error) {
         console.error('Error loading user data:', error);
     }
-}
-
-// Generate demo data
-function generateDemoData() {
-    const devices = ['Windows PC', 'Windows Laptop', 'Windows Desktop'];
-    const os = ['Windows 10', 'Windows 11'];
-    const browsers = ['Chrome', 'Edge', 'Firefox'];
-    const statuses = ['online', 'offline'];
-    
-    const demoData = [];
-    for (let i = 0; i < 15; i++) {
-        demoData.push({
-            serial: generateSerialKey('WF'),
-            ip: `${Math.floor(Math.random() * 255)}.${Math.floor(Math.random() * 255)}.${Math.floor(Math.random() * 255)}.${Math.floor(Math.random() * 255)}`,
-            device: devices[Math.floor(Math.random() * devices.length)],
-            os: os[Math.floor(Math.random() * os.length)],
-            browser: browsers[Math.floor(Math.random() * browsers.length)],
-            lastSeen: new Date(Date.now() - Math.random() * 86400000).toISOString(),
-            status: statuses[Math.floor(Math.random() * statuses.length)]
-        });
-    }
-    return demoData;
 }
 
 // Update dashboard with data
