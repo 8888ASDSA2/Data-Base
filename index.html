@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Finder - User Tracking Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Word Finder - User Tracking Dashboard</h1>
+            <p class="subtitle">Monitor active users and device information</p>
+        </header>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon">👥</div>
+                <div class="stat-info">
+                    <h3 id="totalUsers">0</h3>
+                    <p>Total Users</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🟢</div>
+                <div class="stat-info">
+                    <h3 id="activeUsers">0</h3>
+                    <p>Active Now</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🔑</div>
+                <div class="stat-info">
+                    <h3 id="totalSerials">0</h3>
+                    <p>Serial Keys</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🌍</div>
+                <div class="stat-info">
+                    <h3 id="uniqueIPs">0</h3>
+                    <p>Unique IPs</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="table-container">
+            <div class="table-header">
+                <h2>User Activity Log</h2>
+                <button class="refresh-btn" onclick="refreshData()">🔄 Refresh</button>
+            </div>
+            <table id="userTable">
+                <thead>
+                    <tr>
+                        <th>Serial Number</th>
+                        <th>IP Address</th>
+                        <th>Device Type</th>
+                        <th>OS</th>
+                        <th>Browser</th>
+                        <th>Last Seen</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="userTableBody">
+                    <!-- Data will be populated here -->
+                </tbody>
+            </table>
+        </div>
+
+        <div class="serial-generator">
+            <h2>Generate New Serial Key</h2>
+            <div class="generator-controls">
+                <input type="text" id="serialPrefix" placeholder="Prefix (optional)" maxlength="4">
+                <button class="generate-btn" onclick="generateSerial()">Generate Serial</button>
+            </div>
+            <div class="generated-serial" id="generatedSerial"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
